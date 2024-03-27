@@ -11,15 +11,16 @@ const td1 = document.createElement("td");
 const td2 = document.createElement("td");
 	td2.id = `${i}2`;
 	td2.innerText = 'Loading...';
-	row.append(td1,td2);
+	row.append(td1,td2);  
 	tbody.appendChild(row);
 }
 
 let arrProm = [];
 for(let i=0;i<3;i++){
-rowCreation(i);
+rowCreation(i);    
 
-	const delay = Math.random()*3000;
+	let delay = Math.random()*3000;
+	if(delay<1000)delay+=1000;
 	const prom = new Promise((resolve,reject)=>{
 		setTimeout(()=>{
 			resolve([`Promise ${i+1}`,delay])
@@ -47,7 +48,7 @@ for(let i = 0;i<n;i++){
 		total +=secs;
 }    
 		const row = document.getElementById(`r4`);
-		let childs = row.childNodes;
+		let childs = row.childNodes; 
 		childs[0].innerText = 'Total';
 		childs[1].innerText = total;
 		
