@@ -45,12 +45,12 @@ for(let i = 0;i<n;i++){
 		childs[0].innerText = promises[i][0];
 	const secs = promises[i][1]; 
 		childs[1].innerText = parseInt(secs/1000);
-		total +=secs;
+		total +=secs;  
 }     
 		const row = document.getElementById(`r4`);
 		let childs = row.childNodes; 
 		childs[0].innerText = 'Total';
-		childs[1].innerText = total;
+		childs[1].innerText = total/1000;
 		
     })
     .catch((error) => {
