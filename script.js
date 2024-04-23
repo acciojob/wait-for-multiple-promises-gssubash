@@ -20,7 +20,7 @@ for(let i=0;i<3;i++){
 rowCreation(i);    
 
 	let delay = Math.random()*3000;
-	if(delay<1000)delay+=1000;
+	if(delay<=1000)delay+=1000;
 	const prom = new Promise((resolve,reject)=>{
 		setTimeout(()=>{
 			resolve([`Promise ${i+1}`,delay])
@@ -34,19 +34,19 @@ let promises;
 Promise.all(arrProm) 
     .then((results) => {
 		promises = results;
-        console.log('All promises resolved successfully:', results);
+        // console.log('All promises resolved successfully:', results);
 		let n = promises.length;
-console.log(promises); 
+// console.log(promises); 
 
 		let total = 0;
 for(let i = 0;i<n;i++){
 		const row = document.getElementById(`r${i}`);
 		let childs = row.childNodes;
 		childs[0].innerText = promises[i][0];
-	const secs = promises[i][1];
+	const secs = promises[i][1]; 
 		childs[1].innerText = parseInt(secs/1000);
 		total +=secs;
-}    
+}     
 		const row = document.getElementById(`r4`);
 		let childs = row.childNodes; 
 		childs[0].innerText = 'Total';
